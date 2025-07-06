@@ -2,6 +2,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal moved
+
 @export var tile_size: int = 32
 @onready var floor_layer = get_parent().get_node("FloorLayer")
 @onready var se_player = $"../AudioStreamPlayer2D"
@@ -24,6 +26,8 @@ func _process(delta: float) -> void:
 		if position.distance_to(target_position) < 1:
 			position = target_position
 			moving = false
+			print("emit_signal: moved")
+			emit_signal("moved")
 		return
 
 	input_dir = Vector2.ZERO
@@ -52,6 +56,11 @@ func _process(delta: float) -> void:
 		# ゴールイベント
 		if atlas_coords in GOAL_ATLAS_COORDS:
 			on_goal_reached()
+			
+	if moving and position.distance_to(target_position) < 1:
+		position = target_position
+		moving = false
+		emit_signal("moved")
 
 func move_to(pos: Vector2):
 	target_position = pos
@@ -60,3 +69,6 @@ func move_to(pos: Vector2):
 func on_goal_reached():
 	print("ゴールに到達！クリア！")
 	se_player.play()
+	
+	
+	

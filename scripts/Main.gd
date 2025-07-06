@@ -17,7 +17,8 @@ func _on_player_moved() -> void:
 	print("player moved! enemy turn start")
 	turn = "enemy"
 	await get_tree().create_timer(0.3).timeout
-	enemy.move_random()
+	# enemy.move_random()
+	enemy.move_astar(player.position)
 	turn = "player"
 	
 

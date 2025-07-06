@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=4 uid="uid://dj2eie5iwvf6u"]
+
+[ext_resource type="TileSet" uid="uid://bgmi3n7g0qv38" path="res://tile_set.tres" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c0qnrkcb32qpm" path="res://scripts/Main.gd" id="1_272bh"]
+[ext_resource type="Script" uid="uid://c61coo80y47iw" path="res://scripts/Player.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://baeibk273rdc" path="res://sprites/Knight64.png" id="2_h2yge"]
+[ext_resource type="AudioStream" uid="uid://dllblaghbwg04" path="res://sounds/goal.mp3" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cyojeg2xrx6kq" path="res://scripts/Enemy.gd" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://bpsjmawd4lviw" path="res://sprites/wizard64.png" id="5_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_272bh")
+
+[node name="FloorLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAAEAAcAAAABAAAAAAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAHAAYAAAABAAAAAAAHAAUAAAABAAAAAAAHAAQAAAABAAAAAAAHAAMAAAABAAAAAAAHAAIAAAABAAAAAAAHAAEAAAABAAAAAAAHAAAAAAABAAAAAAAGAAAAAAABAAAAAAAFAAAAAAABAAAAAAAEAAAAAAABAAAAAAADAAAAAAABAAAAAAACAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAAAAAEAAAABAAIAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAABAAEAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAA=")
+tile_set = ExtResource("1_0xm2m")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_h2yge")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1bvp3")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("5_7mycd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_lquwl")

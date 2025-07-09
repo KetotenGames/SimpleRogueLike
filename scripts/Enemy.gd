@@ -7,10 +7,10 @@ const WALL_ATLAS_COORDS = [Vector2i(1, 0)]
 var target_position := Vector2.ZERO
 
 # マップの大きさ
-const MAP_SIZE = Vector2i(8, 8)
+const MAP_SIZE = Vector2i(20, 20)
 
 func _ready() -> void:
-	target_position = floor_layer.map_to_local(Vector2i(3, 2))
+	target_position = floor_layer.map_to_local(Vector2i(2, 5))
 	position = target_position
 
 func move_random():
